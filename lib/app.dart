@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quotes/core/utils/app_colors.dart';
 import 'package:quotes/core/utils/app_strings.dart';
 
+import 'config/themes/app_theme.dart';
 import 'features/random_quote/presentation/screens/quote_screen.dart';
 
 class QuoteApp extends StatelessWidget {
@@ -12,7 +13,7 @@ class QuoteApp extends StatelessWidget {
     return MaterialApp(
       title: AppStrings.appName,
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primaryColor: AppColors.primary),
+      theme: appTheme(),
       home: const QuoteScreen(),
     );
   }
