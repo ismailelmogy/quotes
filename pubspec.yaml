@@ -12,6 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.0.1
+  fluttertoast: ^8.0.9
   http: ^0.13.4
 
 dev_dependencies:
@@ -29,9 +30,9 @@ flutter:
     - family: Tajawal
       fonts:
         - asset: assets/fonts/Tajawal-Black.ttf
-          weight: 900 
+          weight: 900
         - asset: assets/fonts/Tajawal-ExtraBold.ttf
-          weight: 800    
+          weight: 800
         - asset: assets/fonts/Tajawal-Bold.ttf
           weight: 700
         - asset: assets/fonts/Tajawal-Medium.ttf
@@ -41,7 +42,4 @@ flutter:
         - asset: assets/fonts/Tajawal-Light.ttf
           weight: 300
         - asset: assets/fonts/Tajawal-ExtraLight.ttf
-          weight: 200        
-
-          
-  
+          weight: 200
