@@ -27,10 +27,7 @@ class Constants {
   }
 
   static void showToast(
-      {required BuildContext context,
-      required String msg,
-      Color? color,
-      ToastGravity? gravity}) {
+      {required String msg, Color? color, ToastGravity? gravity}) {
     Fluttertoast.showToast(
         toastLength: Toast.LENGTH_LONG,
         msg: msg,

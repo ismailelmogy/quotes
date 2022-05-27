@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quotes/core/utils/assets_manager.dart';
 import 'package:quotes/core/utils/constants.dart';
+import 'package:quotes/core/utils/media_query_values.dart';
 
 class QuoteScreen extends StatefulWidget {
   const QuoteScreen({Key? key}) : super(key: key);
@@ -15,9 +16,12 @@ class _QuoteScreenState extends State<QuoteScreen> {
     return Scaffold(
       body: Center(
           child: InkWell(
-              onTap: () => Constants.showToast(
-                  color: Colors.red, context: context, msg: 'Error Happened'),
-              child: Image.asset(ImgAssets.ministry))),
+              onTap: () =>
+                  Constants.showToast(color: Colors.red, msg: 'Error Happened'),
+              child: Image.asset(
+                ImgAssets.ministry,
+                width: context.width,
+              ))),
     );
   }
 }
