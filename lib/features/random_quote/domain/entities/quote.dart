@@ -13,5 +13,5 @@ class Quote extends Equatable {
       required this.permalink});
 
   @override
-  List<Object?> get props => throw UnimplementedError();
+  List<Object?> get props => [author, id, content, permalink];
 }
