@@ -1,3 +1,4 @@
+import 'package:quotes/core/error/exceptions.dart';
 import 'package:quotes/core/network/netwok_info.dart';
 import 'package:quotes/features/random_quote/data/datasources/random_quote_local_data_source.dart';
 import 'package:quotes/features/random_quote/data/datasources/random_quote_remote_data_source.dart';
@@ -17,17 +18,24 @@ class QuoteRepositoryImpl implements QuoteRepository {
       required this.randomQuoteLocalDataSource});
 
   @override
-  Future<Either<Failure, Quote>> getRandomQuote() {
-    throw UnimplementedError();
-    /*
-    if (is connecteed)
-     {
-       get data from api 
-     }
-     else{
-        get data from cache 
-     }
-     
-    */
+  Future<Either<Failure, Quote>> getRandomQuote() async {
+    if (await networkInfo.isConnected) {
+      try {
+        final remoteRandomQuote =
+            await randomQuoteRemoteDataSource.getRandomQuote();
+        randomQuoteLocalDataSource.cacheQuote(remoteRandomQuote);
+        return Right(remoteRandomQuote);
+      } on ServerException {
+        return Left(ServerFailure());
+      }
+    } else {
+      try {
+        final cacheRandomQuote =
+            await randomQuoteLocalDataSource.getLastRandomQuote();
+        return Right(cacheRandomQuote);
+      } on CacheException {
+        return Left(CacheFailure());
+      }
+    }
   }
 }
