@@ -1,6 +1,8 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:quotes/core/utils/app_strings.dart';
-import 'package:quotes/features/random_quote/presentation/screens/quote_screen.dart';
+
+import '../../features/random_quote/presentation/screens/quote_screen.dart';
 
 class Routes {
   static const String initialRoute = '/';
