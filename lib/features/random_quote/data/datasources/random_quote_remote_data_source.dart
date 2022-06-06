@@ -10,7 +10,7 @@ abstract class RandomQuoteRemoteDataSource {
 }
 
 class RandomQuoteRemoteDataSourceImpl implements RandomQuoteRemoteDataSource {
-  http.Client client;
+  late http.Client client;
 
   RandomQuoteRemoteDataSourceImpl({required this.client});
 
@@ -19,6 +19,7 @@ class RandomQuoteRemoteDataSourceImpl implements RandomQuoteRemoteDataSource {
     final randomQuoteUrl = Uri.parse(EndPoints.randomQuote);
     final response = await client.get(randomQuoteUrl,
         headers: {AppStrings.contentType: AppStrings.applicationJson});
+
     if (response.statusCode == 200) {
       return QuoteModel.fromJson(json.decode(response.body));
     } else {
