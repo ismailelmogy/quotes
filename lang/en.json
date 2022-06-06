@@ -1,0 +1,13 @@
+{
+  "app_name": "Quotes App",
+  "opps": "OPPS !",
+  "please_check_your_internet_connection_and_try_again": "Please check your Internet Connection and try again",
+  "try_again": "Try Again",
+  "welcome": "Welcome",
+  "ok": "Ok",
+  "cancel": "Cancel",
+  "something_went_wrong": "Something Went Wrong",
+  "reload_screen": "Reload Screen",
+  "want_to_logout": "Do you want to logout ?",
+  "logout": "Logout"
+}

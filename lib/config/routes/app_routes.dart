@@ -5,21 +5,28 @@ import 'package:quotes/features/random_quote/presentation/cubit/random_quote_cub
 import '../../features/random_quote/presentation/screens/quote_screen.dart';
 import 'package:quotes/injection_container.dart' as di;
 
+import '../../features/splash/presentation/screens/splash_screen.dart';
+
 class Routes {
   static const String initialRoute = '/';
+  static const String randomQuoteRoute = '/randomQuote';
 }
 
 class AppRoutes {
   static Route? onGenerateRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
       case Routes.initialRoute:
+        return MaterialPageRoute(builder: (context) {
+          return const SplashScreen();
+        });
+
+      case Routes.randomQuoteRoute:
         return MaterialPageRoute(builder: ((context) {
           return BlocProvider(
             create: ((context) => di.sl<RandomQuoteCubit>()),
             child: const QuoteScreen(),
           );
         }));
-
       default:
         return undefinedRoute();
     }
