@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:quotes/core/api/api_consumer.dart';
+import 'package:quotes/core/api/dio_consumer.dart';
 import 'package:quotes/core/network/netwok_info.dart';
 import 'package:quotes/features/random_quote/data/datasources/random_quote_local_data_source.dart';
 import 'package:quotes/features/random_quote/data/datasources/random_quote_remote_data_source.dart';
@@ -9,8 +11,6 @@ import 'package:quotes/features/random_quote/domain/repositories/quote_repositor
 import 'package:quotes/features/random_quote/domain/usecases/get_random_quote.dart';
 import 'package:quotes/features/random_quote/presentation/cubit/random_quote_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:http/http.dart' as http;
-
 import 'core/api/app_interceptors.dart';
 
 final sl = GetIt.instance;
@@ -36,11 +36,12 @@ Future<void> init() async {
   sl.registerLazySingleton<RandomQuoteLocalDataSource>(
       () => RandomQuoteLocalDataSourceImpl(sharedPreferences: sl()));
   sl.registerLazySingleton<RandomQuoteRemoteDataSource>(
-      () => RandomQuoteRemoteDataSourceImpl(client: sl()));
+      () => RandomQuoteRemoteDataSourceImpl(apiConsumer: sl()));
 
   //! Core
   sl.registerLazySingleton<NetworkInfo>(
       () => NetworkInfoImpl(connectionChecker: sl()));
+  sl.registerLazySingleton<ApiConsumer>(() => DioConsumer(client: sl()));
 
   //! External
   final sharedPreferences = await SharedPreferences.getInstance();
@@ -54,5 +55,5 @@ Future<void> init() async {
       responseHeader: true,
       error: true));
   sl.registerLazySingleton(() => InternetConnectionChecker());
-  sl.registerLazySingleton(() => http.Client());
+  sl.registerLazySingleton(() => Dio());
 }
