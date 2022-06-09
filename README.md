@@ -4,18 +4,19 @@
 
 The objective of this tutorial is to learn about Clean Architecture for Flutter. We'll be using the Clean Architecture proposed by Bob Martin.
 
-#### _Find my course on [Clean Architecture In Flutter](https://resocoder.com)_
+#### _Find my course on Udemy [Clean Architecture In Flutter](https://www.udemy.com/course/clean-architecture-in-flutter-arabic/)_
 
-<br />
+## The Clean Architecture
 
-<h3 align="center">Architecture Proposal</h3>
+![The Clean Architecture](https://blog.cleancoder.com/uncle-bob/images/2012-08-13-the-clean-architecture/CleanArchitecture.jpg)
 
-<br />
+## Reso Coder's Flutter Clean Architecture Proposal
 
-<img src="./architecture-proposal.png" style="display: block; margin-left: auto; margin-right: auto; width: 75%;"/>
+![Reso Coder's Flutter Clean Architecture Proposal](https://i0.wp.com/resocoder.com/wp-content/uploads/2019/08/Clean-Architecture-Flutter-Diagram.png?w=556&ssl=1)
 
-<br />
-<br />
+## Project Structure
+
+![Project Structure](https://github.com/ismailelmogy/quotes/blob/main/layout/project%20structure.png)
 
 
 # Screen Shots
