@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:quotes/config/locale/app_localizations.dart';
 import 'package:quotes/core/utils/app_colors.dart';
-import 'package:quotes/core/utils/app_strings.dart';
 import 'package:quotes/features/random_quote/presentation/cubit/random_quote_cubit.dart';
 import 'package:quotes/features/splash/presentation/cubit/locale_cubit.dart';
 import '../widgets/quote_content.dart';

@@ -17,7 +17,7 @@ class Constants {
                 TextButton(
                   onPressed: () => Navigator.pop(context),
                   style: TextButton.styleFrom(
-                      primary: Colors.black,
+                      foregroundColor: Colors.black,
                       textStyle: const TextStyle(
                           fontSize: 14, fontWeight: FontWeight.bold)),
                   child: const Text('Ok'),
